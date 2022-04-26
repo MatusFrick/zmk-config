@@ -96,7 +96,7 @@ behaviors {
 		right_layer {
 		bindings = <
 		&kp ESC  &kp F1 &kp F2  &kp F3  &kp F4    				&kp F5  &kp F6 &kp F7 &kp F8 &kp F9 
-		&kp TAB  &kp F10 &kp F11 &kp F12 &trans  				&trans  &kp PRSCN &trans  &trans   &trans
+		&kp TAB  &kp F10 &kp F11 &kp F12 &trans  				&trans  &kp PSCRN &trans  &trans   &trans
 		&kp LSFT  &trans  &trans  &trans &trans     				&trans  &trans  &trans  &trans   &trans
 					  &to 0 &kp LCTL  				&kp LALT  &mo 3 
 		>;
