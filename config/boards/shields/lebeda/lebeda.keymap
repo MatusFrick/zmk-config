@@ -58,7 +58,7 @@ behaviors {
 		&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U    &kp Y   &kp SEMI 
 		&kp A &hm LCTRL R &hm LALT S &hm LGUI T &kp G 			        &kp M &hm RGUI N  &hm LALT E  &hm LCTRL I  &kp O
 		&kp Z &kp X &kp C &kp D &kp V				                &kp K &kp H  &kp COMMA &kp DOT &kp SLASH
-          				&kp SPACE &kp LSHIFT  				&hm LSHIFT ENTER &to 1 
+          				&hm LSHIFT SPACE &kp ESC  			&hm RSHIFT ENTER &to 1 
 		>;
 		};
 
