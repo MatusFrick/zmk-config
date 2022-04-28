@@ -67,7 +67,7 @@ behaviors {
 		&kp N0    &kp N1      &kp N2          &kp N3      &kp LPAR 		&kp RPAR &kp EQUAL &kp PLUS  &kp BSLH  &kp BACKSPACE
 		&kp TAB    &hm LCTRL N4 &hm LALT N5     &hm LGUI N6 &kp LBKT 		&kp RBKT &hm RGUI LEFT   &hm RALT DOWN &hm RCTL UP   &kp RIGHT  
 		&kp TILDE  &kp N7      &kp N8          &kp N9      &kp SQT 		&kp MINUS &trans   &trans  &trans   &kp GRAVE 
-					    &to 0  &kp LCTRL  				&hm LALT LSHIFT &to 2 
+					    &to 0  &hm LCTRL SPACE  			&hm LSHIFT ENTER &to 2 
 		>;
 		};
 		
@@ -82,10 +82,10 @@ behaviors {
 		
 		tri_layer {
 		bindings = <
-		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&trans &trans   &trans   &trans  &trans
+		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&BT_SEL 0 &BT_SEL 1   &BT_SEL 2   &BT_SEL 3  &trans
 		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans 
 		&bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   				&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans   
-					 &to 0 &trans  						&trans &trans 
+					 &to 0 &trans  						&trans &to 3 
 		>;
 		};	
         
