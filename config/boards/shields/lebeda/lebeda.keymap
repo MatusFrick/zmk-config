@@ -83,11 +83,19 @@ behaviors {
 		tri_layer {
 		bindings = <
 		&kp NUM_1  &kp NUM_2    &kp NUM_3    &kp NUM_4    &kp NUM_5 			&bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3  &bt BT_SEL 4
-		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &trans 
+		&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &to 4 
 		&bt BT_CLR  &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   				&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans   
 					 		&to 0 &to 0  				&trans &to 3 
 		>;
 		};	
         
+		game_layer {
+		bindings = <
+		&kp ESC  &kp Q    &kp W    &kp E    &kp R 			&kp T &kp Y   &kp U   &kp I  &to 0
+		&kp TAB &kp A &kp S &kp D &kp F  				&kp G &kp H  &kp J &kp K &kp L 
+		&kp LCTRL  &kp Z &kp X &kp C &kp V   				&kp B &kp N  &kp M  &O &kp P   
+					 &kp LSHIFT &kp SPACE  			&kp LCTRL &kp RCTRL 
+		>;
+		};	
 	};
 };
