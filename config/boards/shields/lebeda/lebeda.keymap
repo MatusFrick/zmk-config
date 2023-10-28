@@ -102,7 +102,7 @@
             &kp Q &kp W       &kp F      &kp P      &kp B       &kp J &kp L       &kp U       &kp Y        &kp SEMI 
             &kp A &hm LCTRL R &hm LGUI S &hm LALT T &kp G       &kp M &hm LALT N  &hm RGUI E  &hm RCTRL I  &kp O
             &kp Z &kp X       &kp C      &kp D      &kp V       &kp K &kp H       &kp COMMA   &kp DOT      &kp SLASH
-                                         &mo 1  &kp SPACE       &kp SHIFT &kp RALT
+                                         &mo 1  &kp SPACE       &kp LSHIFT &kp RALT
             >;
             }; 
 
@@ -111,7 +111,7 @@
             &kp N1     &kp N2    &kp N3   &kp N4    &kp N5      &kp N6  &kp N7    &kp N8         &kp N9           &kp N0    
             &kp HOME   &kp LCTRL &kp UP   &kp LALT  &kp END     &none   &kp LALT  &hm RGUI SQT   &hm RCTRL LBKT   &kp RBKT  
             &none      &kp LEFT  &kp DOWN &kp RIGHT &none       &none   &kp GRAVE &kp MINUS      &kp EQUAL        &kp BACKSLASH 
-                                          &none     &kp SPACE   &kp SHIFT &kp RALT 
+                                          &none     &kp SPACE   &kp LSHIFT &kp RALT 
             >;
             };
         
