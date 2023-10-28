@@ -13,20 +13,64 @@
         compatible = "zmk,combos";
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <0 1>;
+            key-positions = <1 2>;
             bindings = <&kp ESC>;
+            layers = <0>;
         };
         
        combo_tab {
             timeout-ms = <50>;
-            key-positions = <10 11>;
+            key-positions = <21 22>;
             bindings = <&kp TAB>;
         };
         
        combo_del {
             timeout-ms = <50>;
-            key-positions = <18 19>;
+            key-positions = <7 8>;
             bindings = <&kp BACKSPACE>;
+        };
+       combo_ent {
+            timeout-ms = <50>;
+            key-positions = <27 28>;
+            bindings = <&kp ENTER>;
+        };
+       combo_function {
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+            bindings = <&mo 2>;
+        };
+
+       combo_accent_1 {
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+            bindings = <&macro_accent_1>;
+        };
+       combo_accent_2 {
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+            bindings = <&macro_accent_2>;
+        };
+
+    };
+    
+    macros {
+        macro_accent_1: macro_accent_1 {
+            compatible = "zmk,behavior-macro";
+            label = "accent_1";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp RALT >,
+                <&macro_tap &kp SQT>,
+                <&macro_release &kp RALT >;
+        };
+        macro_accent_2: macro_accent_2 {
+            compatible = "zmk,behavior-macro";
+            label = "accent_1";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp RALT &kp RSHFT>,
+                <&macro_tap &kp DOT>,
+                <&macro_release &kp RALT &kp RSHFT>;
         };
     };
 
@@ -38,37 +82,28 @@
 			&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U  &kp Y  &kp SEMI 
 			&kp A &kp R &kp S &kp T &kp G 						&kp M &kp N  &kp E  &kp I  &kp O
 			&kp Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp COMMA &kp DOT &kp SLASH
-	          				&kp SPACE &kp ESC  					&kp ENTER &to 1 
+	          				&mo 1  &kp SPACE					&kp SHIFT &
 			>;
-			};
+			}; 
 
-       	left_layer {
+       	number_layer {
 			bindings = <
-			&kp N0    &kp N1 &kp N2   &kp N3 &kp N4 	&kp N5  &kp N6 &kp N7 &kp N8  &kp N9
-			&kp    &kp  &kp    &kp  &kp LBKT 			&kp RBKT  &kp LEFT  &kp DOWN &kp UP    &kp RIGHT  
-			&kp TILDE &kp  &kp    &kp  &kp SQT 			&kp MINUS &trans    &kp J  	 &kp K     &kp GRAVE 
-						    	      &kp SPACE  &		&kp ENTER & 
+			&kp N1     &kp N2   &kp N3 	 &kp N4  	&kp N5  	&kp N6  &kp N7 	  &kp N8  	 &kp N9 	&kp N0    
+			&kp HOME   &kp LEFT &kp UP   &kp RIGHT 	&kp END 	&kp   	&kp   	  &kp SQT    &kp LBKT   &kp RBKT  
+			&kp   	   &kp  	&kp DOWN &kp  &kp     			&kp     &kp GRAVE &kp MINUS  &kp EQUAL  &kp BACKSLASH 
+						    	   &none  &kp SPACE			&kp SHIFT & 
 			>;
 			};
 		
-		right_layer {
+		function_layer {
 			bindings = <
-			 &kp F1 &kp F2  &kp F3  &kp F4 &kp F5  		&kp F6 &kp F7 &kp F8 &kp F9 &kp F10 
-			&kp   &kp  &kp  &kp  &  					&F11  &kp F12 &PSCRN  &trans   &trans
-			&kp BT_CLR  &  &  & &bt BT_SEL 0     		&bt BT_SEL 1  &trans  &trans  &trans   &to 4
+			&kp F1 &kp F2  &kp F3  &kp F4 &kp F5  		&kp F6 		  &kp F7  &kp F8 &kp F9 &kp F10 
+			&kp   &kp  &kp  &kp  &  					&F11  		  &kp F12 &kp PSCRN  &kp K_VOL_UP   &kp K_MUTE 
+			&kp BT_CLR  &  &  & &bt BT_SEL 0     		&bt BT_SEL 1  &  &  &kp K_VOL_DN   &to 3
 						  &hm LSHIFT SPACE &  			&kp LALT  & 
 			>;
 			};	
-		
-		tri_layer {
-			bindings = <
-			&kp NUM_1  &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 			&bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3  &bt BT_SEL 4
-			&kp F1 &kp F2 &kp F3 &kp F4 &kp F5  						&trans &kp PG_UP  &kp K_VOL_UP &kp K_MUTE &to 4 
-			&bt   &bt BT_NXT &bt BT_PRV &kp F6 &kp F7   			&trans &kp PG_DN  &kp K_VOL_DN  &trans &trans   
-						 		&to 0 &to 0  				&trans &to 3 
-			>;
-			};	
-        
+
 		game_layer {
 			bindings = <
 			&kp ESC   &kp Q &kp W &kp E &kp R 			&kp T &kp Y   &kp U   &kp I  &to 0
