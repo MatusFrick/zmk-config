@@ -9,6 +9,17 @@
 #include <dt-bindings/zmk/bt.h>
 
 / { 
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
     combos {
         compatible = "zmk,combos";
         combo_esc {
@@ -22,33 +33,42 @@
             timeout-ms = <50>;
             key-positions = <21 22>;
             bindings = <&kp TAB>;
+            layers = <0>;
         };
         
        combo_del {
             timeout-ms = <50>;
             key-positions = <7 8>;
             bindings = <&kp BACKSPACE>;
+            layers = <0>;
         };
+
        combo_ent {
             timeout-ms = <50>;
             key-positions = <27 28>;
             bindings = <&kp ENTER>;
+            layers = <0>;
         };
+
        combo_function {
             timeout-ms = <50>;
             key-positions = <30 31>;
             bindings = <&mo 2>;
+            layers = <0>;
         };
 
        combo_accent_1 {
             timeout-ms = <50>;
-            key-positions = <30 31>;
+            key-positions = <10 11>;
             bindings = <&macro_accent_1>;
+            layers = <0>;
         };
+
        combo_accent_2 {
             timeout-ms = <50>;
-            key-positions = <30 31>;
+            key-positions = <10 12>;
             bindings = <&macro_accent_2>;
+            layers = <0>;
         };
 
     };
@@ -65,7 +85,7 @@
         };
         macro_accent_2: macro_accent_2 {
             compatible = "zmk,behavior-macro";
-            label = "accent_1";
+            label = "accent_2";
             #binding-cells = <0>;
             bindings =
                 <&macro_press &kp RALT &kp RSHFT>,
@@ -77,40 +97,40 @@
     keymap {
         compatible = "zmk,keymap";
                 
-       	default_layer {
-			bindings = <
-			&kp Q &kp W &kp F &kp P &kp B 						&kp J &kp L  &kp U  &kp Y  &kp SEMI 
-			&kp A &kp R &kp S &kp T &kp G 						&kp M &kp N  &kp E  &kp I  &kp O
-			&kp Z &kp X &kp C &kp D &kp V				        &kp K &kp H  &kp COMMA &kp DOT &kp SLASH
-	          				&mo 1  &kp SPACE					&kp SHIFT &
-			>;
-			}; 
+        default_layer {
+            bindings = <
+            &kp Q &kp W       &kp F      &kp P      &kp B       &kp J &kp L       &kp U       &kp Y        &kp SEMI 
+            &kp A &hm LCTRL R &hm LGUI S &hm LALT T &kp G       &kp M &hm LALT N  &hm RGUI E  &hm RCTRL I  &kp O
+            &kp Z &kp X       &kp C      &kp D      &kp V       &kp K &kp H       &kp COMMA   &kp DOT      &kp SLASH
+                                         &mo 1  &kp SPACE       &kp SHIFT &kp RALT
+            >;
+            }; 
 
-       	number_layer {
-			bindings = <
-			&kp N1     &kp N2   &kp N3 	 &kp N4  	&kp N5  	&kp N6  &kp N7 	  &kp N8  	 &kp N9 	&kp N0    
-			&kp HOME   &kp LEFT &kp UP   &kp RIGHT 	&kp END 	&kp   	&kp   	  &kp SQT    &kp LBKT   &kp RBKT  
-			&kp   	   &kp  	&kp DOWN &kp  &kp     			&kp     &kp GRAVE &kp MINUS  &kp EQUAL  &kp BACKSLASH 
-						    	   &none  &kp SPACE			&kp SHIFT & 
-			>;
-			};
-		
-		function_layer {
-			bindings = <
-			&kp F1 &kp F2  &kp F3  &kp F4 &kp F5  		&kp F6 		  &kp F7  &kp F8 &kp F9 &kp F10 
-			&kp   &kp  &kp  &kp  &  					&F11  		  &kp F12 &kp PSCRN  &kp K_VOL_UP   &kp K_MUTE 
-			&kp BT_CLR  &  &  & &bt BT_SEL 0     		&bt BT_SEL 1  &  &  &kp K_VOL_DN   &to 3
-						  &hm LSHIFT SPACE &  			&kp LALT  & 
-			>;
-			};	
+        number_layer {
+            bindings = <
+            &kp N1     &kp N2    &kp N3   &kp N4    &kp N5      &kp N6  &kp N7    &kp N8         &kp N9           &kp N0    
+            &kp HOME   &kp LCTRL &kp UP   &kp LALT  &kp END     &none   &kp LALT  &hm RGUI SQT   &hm RCTRL LBKT   &kp RBKT  
+            &none      &kp LEFT  &kp DOWN &kp RIGHT &none       &none   &kp GRAVE &kp MINUS      &kp EQUAL        &kp BACKSLASH 
+                                          &none     &kp SPACE   &kp SHIFT &kp RALT 
+            >;
+            };
+        
+        function_layer {
+            bindings = <
+            &kp F1       &kp F2 &kp F3        &kp F4        &kp F5          &kp F6        &kp F7  &kp F8 &kp F9 &kp F10 
+            &kp K_MUTE   &none  &kp K_VOL_UP  &kp K_VOL_DN  &kp PSCRN       &F11          &kp F12 &none  &none  &BT_CLR 
+            &none        &none  &none         &none         &bt BT_SEL 0    &bt BT_SEL 1  &none   &none  &none  &to 3
+                                              &none         &none           &none         &none
+            >;
+            };  
 
-		game_layer {
-			bindings = <
-			&kp ESC   &kp Q &kp W &kp E &kp R 			&kp T &kp Y   &kp U   &kp I  &to 0
-			&kp TAB   &kp A &kp S &kp D &kp F  			&kp G &kp H  &kp J &kp K &kp L 
-			&kp LCTRL &kp Z &kp X &kp C &kp V   		&kp B &kp N  &kp M  &kp O &kp P   
-						 &kp LSHIFT &kp SPACE  			&kp LCTRL &kp RCTRL 
-			>;
-			};	
-	};
+        game_layer {
+            bindings = <
+            &kp ESC   &kp Q &kp W &kp E &kp R           &kp T &kp Y   &kp U   &kp I  &to 0
+            &kp TAB   &kp A &kp S &kp D &kp F           &kp G &kp H  &kp J &kp K &kp L 
+            &kp LCTRL &kp Z &kp X &kp C &kp V           &kp B &kp N  &kp M  &kp O &kp P   
+                         &kp LSHIFT &kp SPACE           &kp LCTRL &kp RCTRL 
+            >;
+            };  
+    };
 };
